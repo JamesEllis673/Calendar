@@ -1,0 +1,33 @@
+@import "../shared/themes/theme-default";
+
+.monthPicker {
+  &-picker {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 340px;
+  }
+
+  &-text {
+    color: $color-alabaster;
+  }
+
+  &-pickerButton {
+    all: unset;
+    cursor: pointer;
+    color: $color-alabaster;
+    font-size: xxx-large;
+    font-weight: bolder;
+    transition: color 0.2s ease;
+  }
+
+  &-pickerButton:hover {
+    color: $color-tea-green;
+    transition: color 0.2s ease;
+  }
+}
+
+.isHidden {
+  visibility: hidden;
+}

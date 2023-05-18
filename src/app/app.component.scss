@@ -1,0 +1,23 @@
+@import "src/app/shared/themes/theme-default";
+
+.app {
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  &-header {
+    align-items: center;
+    background-color: $color-onyx;
+    border-bottom: 5px solid $color-tea-green;
+    display: flex;
+    flex-direction: row;
+    height: 110px;
+    justify-content: center;
+  }
+
+  &-body {
+    height: 100%;
+  }
+}

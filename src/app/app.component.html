@@ -1,0 +1,8 @@
+<div class="app-container">
+  <div class="app-header">
+    <app-month-picker [monthPickerCurrentDate]="currentDate" (monthPickerMonthUpdated)="updateMonthToDisplay($event)"></app-month-picker>
+  </div>
+  <div class="app-body">
+    <app-calendar-view [calendarViewCurrentDate]="currentDate" [calendarViewMonthToDisplay]="monthToDisplay"></app-calendar-view>
+  </div>
+</div>

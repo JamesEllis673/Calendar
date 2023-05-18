@@ -1,0 +1,7 @@
+<div class="monthPicker-picker">
+  <button class="monthPicker-pickerButton" (click)="navigateToPreviousMonth()"><</button>
+  <div class="monthPicker-textContainer">
+    <h1 class="monthPicker-text" *appIfChanges="formattedDateToDisplay" [@pickerTextChanged]>{{ formattedDateToDisplay | date:'MMMM yyyy' }}</h1>
+  </div>
+  <button class="monthPicker-pickerButton" (click)="navigateToNextMonth()">></button>
+</div>

@@ -1,0 +1,34 @@
+@import "src/app/shared/themes/theme-default";
+
+.calendarView {
+  &-container {
+    background-color: $color-onyx;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr repeat(6, 2fr);
+    height: 100%;
+  }
+
+  &-weekDay {
+    align-self: center;
+    color: $color-alabaster;
+    justify-self: center;
+  }
+
+  &-date {
+    align-self: center;
+    color: $color-alabaster-dark;
+    justify-self: center;
+  }
+}
+
+.inDisplayMonth {
+  color: $color-alabaster;
+}
+
+.isCurrentDate {
+  background-color: $color-tea-green;
+  border-radius: 100%;
+  color: $color-onyx;
+  padding: 8px;
+}
