@@ -1,9 +1,43 @@
+@import "../../../shared/themes/theme-default";
+
 .addEventModal {
   &-container {
-    position: fixed;
+    align-items: center;
+    background-color: $color-onyx;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    height: 40vw;
     inset: 0;
+    justify-content: flex-start;
+    margin: auto;
+    position: fixed;
+    width: 30vw;
     z-index: 9999;
-    background-color: rgba(0, 0, 0, .75);
-    padding: 40px;
+  }
+
+  &-closeButtonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-inline: auto;
+    margin-top: 10px;
+    width: 90%;
+  }
+
+  &-closeButton {
+    all: unset;
+    color: $color-alabaster;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 25pt;
+    transition: color 0.3s ease-in-out;
+  }
+
+  &-closeButton:hover {
+    color: $color-tea-green;
+  }
+
+  &-header {
+    color: $color-alabaster;
   }
 }

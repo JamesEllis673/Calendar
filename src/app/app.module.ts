@@ -9,6 +9,7 @@ import { MonthPickerComponent } from './components/month-picker/month-picker.com
 import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
 import { DateComponent } from './components/date/date.component';
 import { AddEventModalComponent } from './components/modals/add-event-modal/add-event-modal.component';
+import { ModalContainerComponent } from './shared/services/modal-service/components/modal-container/modal-container.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddEventModalComponent } from './components/modals/add-event-modal/add-
     IfChangesDirective,
     CalendarViewComponent,
     DateComponent,
-    AddEventModalComponent
+    AddEventModalComponent,
+    ModalContainerComponent
   ],
   imports: [
     BrowserModule,

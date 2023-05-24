@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ModalService } from '../../shared/services/modal.service';
 import { AddEventModalComponent } from '../modals/add-event-modal/add-event-modal.component';
 
@@ -27,11 +27,9 @@ export class DateComponent  {
   public dateMonthToDisplay: Date;
 
   private readonly modalService: ModalService;
-  private readonly addEventModal: AddEventModalComponent;
 
   constructor(modalService: ModalService) {
     this.modalService = modalService;
-    this.addEventModal = AddEventModalComponent
   }
 
   public isInDisplayMonth(date: Date): boolean {
@@ -43,7 +41,6 @@ export class DateComponent  {
   }
 
   public openModal(date: Date): void {
-    this.addEventModal.addEventModalDate = date;
-    this.modalService.open(this.addEventModal);
+    this.modalService.open(AddEventModalComponent, { date });
   }
 }

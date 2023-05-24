@@ -1,0 +1,9 @@
+.modalContainer {
+  &-backdrop {
+    background-color: black;
+    inset: 0;
+    opacity: 75%;
+    position: fixed;
+    z-index: 999;
+  }
+}

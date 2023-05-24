@@ -1,18 +1,46 @@
-import { Injectable } from '@angular/core';
-import { IModalComponent } from '../../components/modals/interfaces/modal.component.interface';
+import {ApplicationRef, ComponentFactory, ComponentFactoryResolver, Injectable, Type} from '@angular/core';
+import {ModalContainerComponent} from './modal-service/components/modal-container/modal-container.component';
+import {Modal} from './modal-service/models/modal.model';
+import {ModalRef} from './modal-service/models/model-ref.model';
 
-@Injectable({ providedIn: 'root'})
+@Injectable({ providedIn: 'root' })
 export class ModalService {
-  private openModal: IModalComponent;
 
-  public open(modal: IModalComponent): void {
-    this.openModal = modal;
+  private modalContainer: HTMLElement;
+  private modalContainerFactory: ComponentFactory<ModalContainerComponent>;
 
-    this.openModal.open();
+  private readonly componentFactoryResolver: ComponentFactoryResolver;
+  private readonly applicationRef: ApplicationRef;
+
+  constructor(
+    componentFactoryResolver: ComponentFactoryResolver,
+    applicationRef: ApplicationRef
+  ) {
+    this.componentFactoryResolver = componentFactoryResolver;
+    this.applicationRef = applicationRef;
+    this.setupModalContainerFactory();
   }
 
-  public close(): void {
-    this.openModal?.close();
-    this.openModal = null;
+  open<T extends Modal>(component: Type<T>, inputs?: any): ModalRef {
+    this.setupModalContainerDiv();
+
+    const modalContainerRef = this.applicationRef.bootstrap(this.modalContainerFactory, this.modalContainer);
+    const modalComponentRef = modalContainerRef.instance.createModal(component);
+
+    if (inputs) {
+      modalComponentRef.instance.onInjectInputs(inputs);
+    }
+
+    return new ModalRef(modalContainerRef, modalComponentRef);
   }
+
+  private setupModalContainerDiv(): void {
+    this.modalContainer = document.createElement('div');
+    document.getElementsByTagName('body')[0].appendChild(this.modalContainer);
+  }
+
+  private setupModalContainerFactory(): void {
+    this.modalContainerFactory = this.componentFactoryResolver.resolveComponentFactory(ModalContainerComponent);
+  }
+
 }
