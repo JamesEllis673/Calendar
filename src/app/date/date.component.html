@@ -1,0 +1,5 @@
+<div class="date-container">
+  <span class="date-number" [ngClass]="{'inDisplayMonth': isInDisplayMonth(dateDisplayDate), 'isCurrentDate': isCurrentDate(dateDisplayDate)}">
+    {{ dateDisplayDate | date: "dd" }}
+  </span>
+</div>

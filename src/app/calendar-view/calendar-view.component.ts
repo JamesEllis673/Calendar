@@ -19,14 +19,6 @@ export class CalendarViewComponent implements OnChanges {
     this._getDaysToDisplay();
   }
 
-  public isInDisplayMonth(date: Date): boolean {
-    return date.getMonth() === this.calendarViewMonthToDisplay.getMonth();
-  }
-
-  public isCurrentDate(date: Date): boolean {
-    return date.getDate() === this.calendarViewCurrentDate.getDate() && date.getMonth() === this.calendarViewCurrentDate.getMonth();
-  }
-
   private _getDaysToDisplay(): void {
     const dateToDisplay: Date = new Date();
     const firstDayOfDisplayMonth = new Date(this.calendarViewMonthToDisplay);

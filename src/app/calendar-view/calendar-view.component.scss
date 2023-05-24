@@ -16,19 +16,8 @@
   }
 
   &-date {
-    align-self: center;
     color: $color-alabaster-dark;
-    justify-self: center;
+    height: 100%;
+    width: 100%;
   }
-}
-
-.inDisplayMonth {
-  color: $color-alabaster;
-}
-
-.isCurrentDate {
-  background-color: $color-tea-green;
-  border-radius: 100%;
-  color: $color-onyx;
-  padding: 8px;
 }

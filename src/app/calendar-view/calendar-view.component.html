@@ -1,4 +1,4 @@
 <div class="calendarView-container">
   <span class="calendarView-weekDay" *ngFor="let day of days">{{ day }}</span>
-  <span class="calendarView-date" *ngFor="let date of datesToDisplay" [ngClass]="{'inDisplayMonth': isInDisplayMonth(date), 'isCurrentDate': isCurrentDate(date)}">{{ date | date: "dd" }}</span>
+  <app-date class="calendarView-date" *ngFor="let date of datesToDisplay" [dateCurrentDate]="calendarViewCurrentDate" [dateMonthToDisplay]="calendarViewMonthToDisplay" [dateDisplayDate]="date"></app-date>
 </div>
