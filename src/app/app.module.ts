@@ -5,9 +5,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { IfChangesDirective } from './shared/directives/if-changes.directive';
-import { MonthPickerComponent } from './month-picker/month-picker.component';
-import { CalendarViewComponent } from './calendar-view/calendar-view.component';
-import { DateComponent } from './date/date.component';
+import { MonthPickerComponent } from './components/month-picker/month-picker.component';
+import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
+import { DateComponent } from './components/date/date.component';
+import { AddEventModalComponent } from './components/modals/add-event-modal/add-event-modal.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { DateComponent } from './date/date.component';
     MonthPickerComponent,
     IfChangesDirective,
     CalendarViewComponent,
-    DateComponent
+    DateComponent,
+    AddEventModalComponent
   ],
   imports: [
     BrowserModule,

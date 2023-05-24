@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-month-picker',
@@ -9,8 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
     trigger('pickerTextChanged', [
       state('void', style({ opacity: 0 })),
       state('*', style({ opacity: 1 })),
-      transition('void => *', [animate('0.3s ease-in-out')]),
-      transition('* => void', [animate('0.3s ease-in-out')])
+      transition('void => *', [animate('0.6s ease-in-out')]),
     ])
   ]
 })

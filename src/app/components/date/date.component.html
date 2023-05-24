@@ -1,4 +1,4 @@
-<div class="date-container">
+<div (click)="openModal(dateDisplayDate)" class="date-container" [@fadeIn]>
   <span class="date-number" [ngClass]="{'inDisplayMonth': isInDisplayMonth(dateDisplayDate), 'isCurrentDate': isCurrentDate(dateDisplayDate)}">
     {{ dateDisplayDate | date: "dd" }}
   </span>

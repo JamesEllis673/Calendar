@@ -20,7 +20,7 @@ export class IfChangesDirective {
     if (this.currentValue !== value) {
       this.currentValue = value;
       this.viewContainerRef.clear();
-      setTimeout(() => this.viewContainerRef.createEmbeddedView(this.templateRef), 300);
+      this.viewContainerRef.createEmbeddedView(this.templateRef);
     }
   }
 }

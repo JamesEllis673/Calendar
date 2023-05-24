@@ -1,9 +1,10 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-calendar-view',
   templateUrl: './calendar-view.component.html',
-  styleUrls: ['./calendar-view.component.scss']
+  styleUrls: ['./calendar-view.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CalendarViewComponent implements OnChanges {
   @Input()
