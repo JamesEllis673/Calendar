@@ -15,6 +15,5 @@ export class AddEventModalComponent extends Modal {
 
   public onInjectInputs(inputs: AddEventModalConfig): void {
     this.addEventModalDate = inputs.date;
-    console.log(this.addEventModalDate);
   }
 }
