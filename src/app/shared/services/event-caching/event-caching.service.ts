@@ -33,7 +33,7 @@ export class EventCachingService {
 
     for (const key in localStorage) {
       if (localStorage.hasOwnProperty(key)) {
-        const event: EventDataModel = JSON.parse(localStorage.getItem(key));
+        const event: EventDataModel = JSON.parse(localStorage.getItem(key)!);
         models.push({ key, event});
       }
     }

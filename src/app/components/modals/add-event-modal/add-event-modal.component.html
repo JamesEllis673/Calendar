@@ -10,7 +10,7 @@
   <div class="addEventModal-importanceInputContainer">
     <label for="importanceInput" class="addEventModal-importanceInputLabel">Importance</label>
     <select class="addEventModal-importanceInputField" id="importanceInput" [(ngModel)]="event.importance">
-      <option class="addEventModal-importanceInputOption" *ngFor="let importanceLevel of importanceLevels">{{ importanceLevel }}</option>
+      <option class="addEventModal-importanceInputOption" *ngFor="let importanceLevel of importanceLevels | keyvalue">{{ importanceLevel.value }}</option>
     </select>
   </div>
 </div>

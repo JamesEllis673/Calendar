@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { EventCachingService } from '../../../shared/services/event-caching/event-caching.service';
 import { Modal } from '../../../shared/services/modal/models/modal.model';
-import { EventDataModel, EventDataModelWithKey, EventImportanceLevel } from '../../../shared/types/event-data/event-data-model';
+import { EventDataModel, EventImportanceLevel } from '../../../shared/types/event-data/event-data-model';
 
 export type AddEventModalConfig = {
   date: Date;
@@ -15,7 +15,7 @@ export type AddEventModalConfig = {
 export class AddEventModalComponent extends Modal {
   public addEventModalDate: Date;
   public event: EventDataModel;
-  public importanceLevels: Array<string> = Object.values(EventImportanceLevel);
+  public importanceLevels: typeof EventImportanceLevel = EventImportanceLevel;
 
   private readonly eventCachingService: EventCachingService;
 
@@ -31,21 +31,5 @@ export class AddEventModalComponent extends Modal {
       importance: EventImportanceLevel.Low,
       date: this.addEventModalDate.toDateString()
     };
-  }
-
-  public testCacheData(): void {
-    const event: EventDataModel = {
-      name: 'TEST EVENT',
-      date: this.addEventModalDate.toDateString(),
-      importance: EventImportanceLevel.Medium
-    };
-
-    this.eventCachingService.cacheData(event);
-  }
-
-  public testGetCachedData(): void {
-    const data: Array<EventDataModelWithKey> = this.eventCachingService.getCachedDataForDate(this.addEventModalDate.toDateString());
-    console.log(data);
-    this.eventCachingService.deleteData(data[0]?.key);
   }
 }
