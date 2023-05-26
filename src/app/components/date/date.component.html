@@ -2,4 +2,7 @@
   <span class="date-number" [ngClass]="{'inDisplayMonth': isInDisplayMonth(dateDisplayDate), 'isCurrentDate': isCurrentDate(dateDisplayDate)}">
     {{ dateDisplayDate | date: "dd" }}
   </span>
+  <div class="date-eventsContainer">
+    <app-date-event class="date-event" *ngFor="let event of eventsToDisplay()" [dateEventDataModel]="event"></app-date-event>
+  </div>
 </div>

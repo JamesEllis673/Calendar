@@ -8,4 +8,8 @@ export abstract class Modal {
   close(): void {
     this.modalInstance.close();
   }
+
+  save(): void {
+    this.modalInstance.save();
+  }
 }

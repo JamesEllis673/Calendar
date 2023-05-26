@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { EventCachingService } from '../../../shared/services/event-caching/event-caching.service';
 import { Modal } from '../../../shared/services/modal/models/modal.model';
 import { EventDataModel, EventImportanceLevel } from '../../../shared/types/event-data/event-data-model';
@@ -10,7 +10,8 @@ export type AddEventModalConfig = {
 @Component({
   selector: 'app-add-event-modal',
   templateUrl: './add-event-modal.component.html',
-  styleUrls: ['./add-event-modal.component.scss']
+  styleUrls: ['./add-event-modal.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AddEventModalComponent extends Modal {
   public addEventModalDate: Date;
@@ -31,5 +32,10 @@ export class AddEventModalComponent extends Modal {
       importance: EventImportanceLevel.Low,
       date: this.addEventModalDate.toDateString()
     };
+  }
+
+  public createEvent(): void {
+    this.eventCachingService.cacheData(this.event);
+    this.save();
   }
 }

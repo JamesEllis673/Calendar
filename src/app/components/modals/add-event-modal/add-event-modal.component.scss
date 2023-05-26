@@ -7,7 +7,7 @@
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    height: 650px;
+    height: 420px;
     inset: 0;
     justify-content: flex-start;
     margin: auto;
@@ -63,5 +63,29 @@
 
   &-importanceInputField {
     width: 274px;
+  }
+
+  &-createEventButtonContainer {
+    margin-top: 50px;
+  }
+
+  &-createEventButton {
+    all: unset;
+    background-color: $color-tea-green;
+    border-radius: 25px;
+    color: $color-onyx;
+    cursor: pointer;
+    font-size: 16pt;
+    padding: 5px 15px;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  &-createEventButton:hover {
+    background-color: $color-tea-green-dark;
+  }
+
+  &-createEventButton:disabled {
+    background-color: $color-alabaster;
+    cursor: not-allowed;
   }
 }

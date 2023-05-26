@@ -5,6 +5,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output
   selector: 'app-month-picker',
   templateUrl: './month-picker.component.html',
   styleUrls: ['./month-picker.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('pickerTextChanged', [
       state('void', style({ opacity: 0 })),

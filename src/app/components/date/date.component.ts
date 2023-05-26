@@ -1,6 +1,9 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, Input, OnInit, Signal, signal, WritableSignal } from '@angular/core';
+import { take } from 'rxjs';
+import { EventCachingService } from '../../shared/services/event-caching/event-caching.service';
 import { ModalService } from '../../shared/services/modal/modal.service';
+import { EventDataModel, EventDataModelWithKey } from '../../shared/types/event-data/event-data-model';
 import { AddEventModalComponent } from '../modals/add-event-modal/add-event-modal.component';
 
 @Component({
@@ -16,7 +19,7 @@ import { AddEventModalComponent } from '../modals/add-event-modal/add-event-moda
     ])
   ]
 })
-export class DateComponent  {
+export class DateComponent implements OnInit {
   @Input()
   public dateDisplayDate: Date;
 
@@ -26,10 +29,23 @@ export class DateComponent  {
   @Input()
   public dateMonthToDisplay: Date;
 
-  private readonly modalService: ModalService;
+  public events: WritableSignal<Array<EventDataModelWithKey>> = signal(new Array<EventDataModelWithKey>());
+  public eventsToDisplay: Signal<Array<EventDataModel>>;
 
-  constructor(modalService: ModalService) {
+  private readonly modalService: ModalService;
+  private readonly eventCachingService: EventCachingService;
+
+  constructor(
+    modalService: ModalService,
+    eventCachingService: EventCachingService
+  ) {
     this.modalService = modalService;
+    this.eventCachingService = eventCachingService;
+  }
+
+  public ngOnInit(): void {
+    this.events.set(this.eventCachingService.getCachedDataForDate(this.dateDisplayDate.toDateString()));
+    this.eventsToDisplay = computed(() => this.events().slice(0, 3).map((eventWithKey: EventDataModelWithKey) => eventWithKey.event));
   }
 
   public isInDisplayMonth(date: Date): boolean {
@@ -41,6 +57,10 @@ export class DateComponent  {
   }
 
   public openModal(date: Date): void {
-    this.modalService.open(AddEventModalComponent, { date });
+    const modal = this.modalService.open(AddEventModalComponent, { date });
+
+    modal.onSave.pipe(take(1)).subscribe(() => {
+      this.events.set(this.eventCachingService.getCachedDataForDate(this.dateDisplayDate.toDateString()));
+    })
   }
 }

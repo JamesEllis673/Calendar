@@ -13,4 +13,7 @@
       <option class="addEventModal-importanceInputOption" *ngFor="let importanceLevel of importanceLevels | keyvalue">{{ importanceLevel.value }}</option>
     </select>
   </div>
+  <div class="addEventModal-createEventButtonContainer">
+    <button class="addEventModal-createEventButton" (click)="createEvent()" [disabled]="!event.name">Create Event +</button>
+  </div>
 </div>

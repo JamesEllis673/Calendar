@@ -1,0 +1,32 @@
+@import "../../shared/themes/theme-default";
+
+.dateEvent {
+  &-container {
+    align-items: center;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  &-name {
+    color: $color-onyx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 10vw;
+  }
+}
+
+.High {
+  background-color: $color-claret-light;
+}
+
+.Medium {
+  background-color: $color-buff;
+}
+
+.Low {
+  background-color: $color-tea-green-dark;
+}

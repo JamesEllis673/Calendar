@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { EventDataModel, EventDataModelWithKey } from '../../types/event-data/event-data-model';
+import { EventDataModel, EventDataModelWithKey, EventImportanceLevel } from '../../types/event-data/event-data-model';
 import { v4 as uuidGenerator } from 'uuid';
 
 @Injectable({ providedIn: 'root' })
@@ -21,7 +21,7 @@ export class EventCachingService {
       }
     }
 
-    return modelsToReturn;
+    return modelsToReturn.sort(this.compareEvents);
   }
 
   public deleteData(key: string): void {
@@ -39,5 +39,24 @@ export class EventCachingService {
     }
 
     return models;
+  }
+
+  private compareEvents(a: EventDataModelWithKey, b: EventDataModelWithKey): number {
+    if (a.event.importance !== b.event.importance) {
+      if (a.event.importance === EventImportanceLevel.High) {
+        return -1;
+      }
+      if (b.event.importance === EventImportanceLevel.High) {
+        return 1;
+      }
+      if (a.event.importance === EventImportanceLevel.Medium) {
+        return -1;
+      }
+      if (b.event.importance === EventImportanceLevel.Medium) {
+        return 1;
+      }
+    }
+
+    return a.event.name.localeCompare(b.event.name);
   }
 }

@@ -11,6 +11,8 @@ import { CalendarViewComponent } from './components/calendar-view/calendar-view.
 import { DateComponent } from './components/date/date.component';
 import { AddEventModalComponent } from './components/modals/add-event-modal/add-event-modal.component';
 import { ModalContainerComponent } from './shared/services/modal/components/modal-container/modal-container.component';
+import { DateEventComponent } from './components/date-event/date-event.component';
+import { DayInfoModalComponent } from './components/modals/day-info-modal/day-info-modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ModalContainerComponent } from './shared/services/modal/components/moda
     CalendarViewComponent,
     DateComponent,
     AddEventModalComponent,
-    ModalContainerComponent
+    ModalContainerComponent,
+    DateEventComponent,
+    DayInfoModalComponent
   ],
   imports: [
     BrowserModule,
