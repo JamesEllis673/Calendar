@@ -1,0 +1,18 @@
+<div class="dayInfoModal-container">
+  <div class="dayInfoModal-closeButtonContainer">
+    <button class="dayInfoModal-closeButton" (click)="this.shouldUpdateView ? save() : close()">X</button>
+  </div>
+  <h2 class="dayInfoModal-header">{{ dayInfoModalDate | date: "EEEE d MMMM YYYY" }}</h2>
+  <div class="dayInfoModal-openAddEventModalButtonContainer">
+    <button class="dayInfoModal-openAddEventModalButton" (click)="openAddEventModal(dayInfoModalDate)">
+      <span class="dayInfoModal-openAddEventModalButtonIcon">+</span> Create Event
+    </button>
+  </div>
+  <div class="dayInfoModal-eventsContainer">
+    <app-day-info-modal-event class="dayInfoModal-event"
+                              *ngFor="let event of dayInfoModalEvents"
+                              [dayInfoModalEventDataModel]="event"
+                              (eventDeleted)="onEventDeleted(event)">
+    </app-day-info-modal-event>
+  </div>
+</div>

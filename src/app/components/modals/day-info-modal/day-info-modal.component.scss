@@ -1,16 +1,18 @@
 @import "../../../shared/themes/theme-default";
 
-.addEventModal {
+.dayInfoModal {
   &-container {
     align-items: center;
     background-color: $color-onyx;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    height: 420px;
+    height: fit-content;
     inset: 0;
     justify-content: flex-start;
     margin: auto;
+    max-height: 450px;
+    min-height: 300px;
     position: fixed;
     width: 500px;
     z-index: 9999;
@@ -42,34 +44,11 @@
     text-align: center;
   }
 
-  &-nameInputContainer,
-  &-importanceInputContainer {
-    display: flex;
-    flex-direction: column;
+  &-openAddEventModalButtonContainer {
+    margin-top: 20px;
   }
 
-  &-nameInputLabel,
-  &-importanceInputLabel {
-    color: $color-alabaster;
-    font-size: 16pt;
-    margin-block: 20px 5px;
-  }
-
-  &-nameInputField,
-  &-importanceInputOption,
-  &-importanceInputField {
-    font-size: 16pt;
-  }
-
-  &-importanceInputField {
-    width: 274px;
-  }
-
-  &-createEventButtonContainer {
-    margin-top: 50px;
-  }
-
-  &-createEventButton {
+  &-openAddEventModalButton {
     all: unset;
     align-items: center;
     background-color: $color-tea-green;
@@ -83,18 +62,25 @@
     transition: background-color 0.3s ease-in-out;
   }
 
-  &-createEventButton:hover {
+  &-openAddEventModalButton:hover {
     background-color: $color-tea-green-dark;
   }
 
-  &-createEventButton:disabled {
-    background-color: $color-alabaster;
-    cursor: not-allowed;
-  }
-
-  &-createEventButtonIcon {
+  &-openAddEventModalButtonIcon {
     font-weight: 900;
     font-size: 20pt;
     margin-right: 5px;
+  }
+
+  &-eventsContainer {
+    margin-block: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+    width: 80%;
+  }
+
+  &-eventsContainer::-webkit-scrollbar {
+    display: none;
   }
 }

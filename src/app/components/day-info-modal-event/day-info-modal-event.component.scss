@@ -1,0 +1,49 @@
+@import "../../shared/themes/theme-default";
+
+.dayInfoModalEvent {
+  &-container {
+    align-items: center;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding-block: 8px;
+    width: 100%;
+  }
+
+  &-name {
+    color: $color-onyx;
+    font-size: 12pt;
+    margin-left: 10px;
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &-deleteButton {
+    all: unset;
+    color: $color-onyx;
+    cursor: pointer;
+    font-family: monospace;
+    font-size: 20pt;
+    margin-right: 10px;
+    transition: font-weight 0.3s ease;
+  }
+
+  &-deleteButton:hover {
+    font-weight: 700;
+  }
+}
+
+.High {
+  background-color: $color-claret-light;
+}
+
+.Medium {
+  background-color: $color-buff;
+}
+
+.Low {
+  background-color: $color-tea-green-dark;
+}

@@ -3,8 +3,10 @@ import { ChangeDetectionStrategy, Component, computed, Input, OnInit, Signal, si
 import { take } from 'rxjs';
 import { EventCachingService } from '../../shared/services/event-caching/event-caching.service';
 import { ModalService } from '../../shared/services/modal/modal.service';
+import { ModalRef } from '../../shared/services/modal/models/model-ref.model';
 import { EventDataModel, EventDataModelWithKey } from '../../shared/types/event-data/event-data-model';
 import { AddEventModalComponent } from '../modals/add-event-modal/add-event-modal.component';
+import { DayInfoModalComponent } from '../modals/day-info-modal/day-info-modal.component';
 
 @Component({
   selector: 'app-date',
@@ -56,8 +58,14 @@ export class DateComponent implements OnInit {
     return date.getDate() === this.dateCurrentDate.getDate() && date.getMonth() === this.dateCurrentDate.getMonth();
   }
 
-  public openModal(date: Date): void {
-    const modal = this.modalService.open(AddEventModalComponent, { date });
+  public openModal(date: Date, events: Array<EventDataModelWithKey>): void {
+    let modal: ModalRef;
+
+    if (events.length) {
+      modal = this.modalService.open(DayInfoModalComponent, { date, events });
+    } else {
+      modal = this.modalService.open(AddEventModalComponent, { date });
+    }
 
     modal.onSave.pipe(take(1)).subscribe(() => {
       this.events.set(this.eventCachingService.getCachedDataForDate(this.dateDisplayDate.toDateString()));

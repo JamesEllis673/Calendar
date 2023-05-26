@@ -14,6 +14,8 @@
     </select>
   </div>
   <div class="addEventModal-createEventButtonContainer">
-    <button class="addEventModal-createEventButton" (click)="createEvent()" [disabled]="!event.name">Create Event +</button>
+    <button class="addEventModal-createEventButton" (click)="createEvent()" [disabled]="!event.name">
+      <span class="addEventModal-createEventButtonIcon">+</span> Create Event
+    </button>
   </div>
 </div>

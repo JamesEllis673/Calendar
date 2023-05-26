@@ -13,6 +13,7 @@ import { AddEventModalComponent } from './components/modals/add-event-modal/add-
 import { ModalContainerComponent } from './shared/services/modal/components/modal-container/modal-container.component';
 import { DateEventComponent } from './components/date-event/date-event.component';
 import { DayInfoModalComponent } from './components/modals/day-info-modal/day-info-modal.component';
+import { DayInfoModalEventComponent } from './components/day-info-modal-event/day-info-modal-event.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DayInfoModalComponent } from './components/modals/day-info-modal/day-in
     AddEventModalComponent,
     ModalContainerComponent,
     DateEventComponent,
-    DayInfoModalComponent
+    DayInfoModalComponent,
+    DayInfoModalEventComponent
   ],
   imports: [
     BrowserModule,
