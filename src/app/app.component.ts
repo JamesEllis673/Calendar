@@ -1,20 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-  public currentDate: Date;
-  public monthToDisplay: Date;
-
-  public ngOnInit(): void {
-    this.currentDate = new Date();
-    this.monthToDisplay = this.currentDate;
-  }
-
-  public updateMonthToDisplay(newDate: Date): void {
-    this.monthToDisplay = newDate;
-  }
+export class AppComponent {
+  title = 'Calendar2';
 }
