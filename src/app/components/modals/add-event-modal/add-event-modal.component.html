@@ -3,4 +3,14 @@
     <button class="addEventModal-closeButton" (click)="close()">X</button>
   </div>
   <h2 class="addEventModal-header">Add Event For {{ addEventModalDate | date: "EEEE d MMMM YYYY" }}</h2>
+  <div class="addEventModal-nameInputContainer">
+    <label for="nameInput" class="addEventModal-nameInputLabel">Name</label>
+    <input type="text" class="addEventModal-nameInputField" id="nameInput" [(ngModel)]="event.name">
+  </div>
+  <div class="addEventModal-importanceInputContainer">
+    <label for="importanceInput" class="addEventModal-importanceInputLabel">Importance</label>
+    <select class="addEventModal-importanceInputField" id="importanceInput" [(ngModel)]="event.importance">
+      <option class="addEventModal-importanceInputOption" *ngFor="let importanceLevel of importanceLevels">{{ importanceLevel }}</option>
+    </select>
+  </div>
 </div>

@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
-import { ModalService } from '../../shared/services/modal.service';
+import { ModalService } from '../../shared/services/modal/modal.service';
 import { AddEventModalComponent } from '../modals/add-event-modal/add-event-modal.component';
 
 @Component({

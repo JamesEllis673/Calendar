@@ -7,12 +7,12 @@
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    height: 40vw;
+    height: 650px;
     inset: 0;
     justify-content: flex-start;
     margin: auto;
     position: fixed;
-    width: 30vw;
+    width: 500px;
     z-index: 9999;
   }
 
@@ -39,5 +39,29 @@
 
   &-header {
     color: $color-alabaster;
+    text-align: center;
+  }
+
+  &-nameInputContainer,
+  &-importanceInputContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-nameInputLabel,
+  &-importanceInputLabel {
+    color: $color-alabaster;
+    font-size: 16pt;
+    margin-block: 20px 5px;
+  }
+
+  &-nameInputField,
+  &-importanceInputOption,
+  &-importanceInputField {
+    font-size: 16pt;
+  }
+
+  &-importanceInputField {
+    width: 274px;
   }
 }

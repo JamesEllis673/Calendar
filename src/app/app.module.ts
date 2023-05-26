@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -9,7 +10,7 @@ import { MonthPickerComponent } from './components/month-picker/month-picker.com
 import { CalendarViewComponent } from './components/calendar-view/calendar-view.component';
 import { DateComponent } from './components/date/date.component';
 import { AddEventModalComponent } from './components/modals/add-event-modal/add-event-modal.component';
-import { ModalContainerComponent } from './shared/services/modal-service/components/modal-container/modal-container.component';
+import { ModalContainerComponent } from './shared/services/modal/components/modal-container/modal-container.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ModalContainerComponent } from './shared/services/modal-service/compone
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,7 @@
 import {ApplicationRef, ComponentFactory, ComponentFactoryResolver, Injectable, Type} from '@angular/core';
-import {ModalContainerComponent} from './modal-service/components/modal-container/modal-container.component';
-import {Modal} from './modal-service/models/modal.model';
-import {ModalRef} from './modal-service/models/model-ref.model';
+import {ModalContainerComponent} from './components/modal-container/modal-container.component';
+import {Modal} from './models/modal.model';
+import {ModalRef} from './models/model-ref.model';
 
 @Injectable({ providedIn: 'root' })
 export class ModalService {
