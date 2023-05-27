@@ -7,6 +7,7 @@ export class ModalRef {
   private readonly modal: ComponentRef<Modal>;
 
   public onSave: EventEmitter<void> = new EventEmitter<void>();
+  public onClose: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(
     modalContainer: ComponentRef<ModalContainerComponent>,
@@ -23,6 +24,7 @@ export class ModalRef {
   }
 
   close(): void {
+    this.onClose.emit();
     this.modal.destroy();
     this.modalContainer.destroy();
   }

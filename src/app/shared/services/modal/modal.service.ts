@@ -42,5 +42,4 @@ export class ModalService {
   private setupModalContainerFactory(): void {
     this.modalContainerFactory = this.componentFactoryResolver.resolveComponentFactory(ModalContainerComponent);
   }
-
 }

@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { ChangeDetectionStrategy, Component, computed, Input, OnInit, Signal, signal, WritableSignal } from '@angular/core';
-import { take } from 'rxjs';
+import { takeUntil } from 'rxjs';
 import { EventCachingService } from '../../shared/services/event-caching/event-caching.service';
 import { ModalService } from '../../shared/services/modal/modal.service';
 import { ModalRef } from '../../shared/services/modal/models/model-ref.model';
@@ -67,7 +67,7 @@ export class DateComponent implements OnInit {
       modal = this.modalService.open(AddEventModalComponent, { date });
     }
 
-    modal.onSave.pipe(take(1)).subscribe(() => {
+    modal.onSave.pipe(takeUntil(modal.onClose)).subscribe(() => {
       this.events.set(this.eventCachingService.getCachedDataForDate(this.dateDisplayDate.toDateString()));
     })
   }

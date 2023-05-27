@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { take } from 'rxjs';
+import { takeUntil } from 'rxjs';
 import { ModalService } from '../../../shared/services/modal/modal.service';
 import { Modal } from '../../../shared/services/modal/models/modal.model';
 import { ModalRef } from '../../../shared/services/modal/models/model-ref.model';
@@ -43,7 +43,7 @@ export class DayInfoModalComponent extends Modal {
 
     const modal: ModalRef = this.modalService.open(AddEventModalComponent, { date });
 
-    modal.onSave.pipe(take(1)).subscribe(() => this.save());
+    modal.onSave.pipe(takeUntil(modal.onClose)).subscribe(() => this.save());
   }
 
   public onEventDeleted(event: EventDataModelWithKey): void {
